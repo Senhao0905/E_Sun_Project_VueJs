@@ -54,7 +54,8 @@ export default {
                     else {
                         alert("登入成功")
                         sessionStorage.setItem("isLogin", true)
-                        this.$router.push("/home")
+                        sessionStorage.setItem("userId",this.phone)
+                        location.href = "/home"
                     }
 
                 })
