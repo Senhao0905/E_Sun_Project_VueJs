@@ -20,8 +20,8 @@ export default {
             this.emailCheck = false;
             this.nameCheck = false;
 
-            if (this.pwd == null || this.pwd === "") {
-                this.pwdCheck = true
+            if (this.phone == null || this.phone === "") {
+                this.phoneCheck = true
             }
 
             if (this.pwd == null || this.pwd === "") {
@@ -73,7 +73,7 @@ export default {
 
                     alert("註冊成功 前往登入 !");
                     this.$router.push({
-                        name: "Login"
+                        name: "login"
                     })
                 })
         },
