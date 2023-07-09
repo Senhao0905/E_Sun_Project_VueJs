@@ -46,7 +46,7 @@ export default {
     <div class=" mx-auto mt-2 bg-white rounded-lg w-3/4 h-52">
         <div class=" flex items-center ">
             <i class="fa-solid fa-user mx-2"></i>
-            <h2 class=" text-xl">{{ user != null ? user.userId : "" }}</h2>
+            <h2 class=" text-blue-500 text-xl">{{ user != null ? user.userId : "" }}</h2>
         </div>
         <textarea name="" id="" class=" resize-none block w-full" cols="80" rows="5" placeholder="在想甚麼 ?"
             v-model="textValue"></textarea>

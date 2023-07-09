@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       height: {
         '1000': '780px',
+        '2000': '250px'
       }
     },
   },

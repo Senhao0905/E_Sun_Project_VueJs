@@ -19,7 +19,20 @@ const router = createRouter({
       path:'/home',
       name:'home',
       component: () => import("../views/HomePage.vue")
+    },
+    {
+      path:'/comment:id',
+      name:'comment',
+      component: () => import("../views/CommentPage.vue"),
+      props : true
+    },
+    {
+      path:'/edit:postId',
+      name:'edit',
+      component: () => import("../views/Edit.vue"),
+      props:true
     }
+    
   ]
 })
 

@@ -7,6 +7,56 @@ export default {
             userId: sessionStorage.getItem("userId")
         }
     },
+    methods: {
+        del() {
+            const yes = confirm('你確定嗎？');
+
+            if (yes) {
+                let body = {
+                    postId: this.post != null ? this.post.postId : ""
+                }
+
+                console.log(body)
+
+                fetch("http://localhost:8080/del_post", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(body),
+                    credentials: "include"
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if(data.message ==="Successful !"){
+                        alert("刪除成功 !");
+                        location.reload();
+                    }
+                    else{
+                        alert("請先登入");
+                        this.$router.push("/")
+                    }
+                })
+            } 
+        },
+        comment(){
+            this.$router.push({
+                name : 'comment',
+                params : {
+                    id : this.post.postId
+                }
+            })
+        },
+        update(){
+            this.$router.push({
+                name:'edit',
+                params :{
+                    postId : this.post.postId
+                }
+            })
+        }
+    },
     mounted() {
         this.time = this.post.createdTime.replace("T", " ")
         console.log(this.userId);
@@ -19,7 +69,7 @@ export default {
         <div class=" flex items-center">
             <i class="fa-solid fa-user mx-2"></i>
             <div class=" w-full flex  justify-between">
-                <h2 class=" text-xl">{{ post !== null ? post.userId : "" }}</h2>
+                <h2 class=" text-xl text-blue-500">{{ post !== null ? post.userId : "" }}</h2>
                 <h2 class=" mx-2 text-xl">{{ time !== null ? time : "" }}</h2>
             </div>
 
@@ -31,13 +81,17 @@ export default {
         </div>
         <div v-if="userId === (post != null ? post.userId : '')" class=" flex justify-between items-center">
             <div class=" flex mx-2 ">
-                <i class="fa-solid fa-trash-can text-3xl cursor-pointer mr-2"></i>
-                <i class="fa-solid fa-pen-to-square text-3xl cursor-pointer "></i>
+                <!-- del -->
+                <i class="fa-solid fa-trash-can text-3xl cursor-pointer mr-2 hover:scale-105" @click="del"></i>
+                <!-- update -->
+                <i class="fa-solid fa-pen-to-square text-3xl cursor-pointer hover:scale-105" @click="update"></i>
             </div>
-            <i class="fa-regular mx-2 fa-comment text-3xl cursor-pointer"></i>
+            <!-- commment -->
+            <i class="fa-regular mx-2 fa-comment text-3xl cursor-pointer hover:scale-105" @click="comment"></i>
         </div>
         <div v-else class=" flex justify-end items-center">
-            <i class="fa-regular mx-2 fa-comment text-3xl cursor-pointer"></i>
+            <!-- commment -->
+            <i class="fa-regular mx-2 fa-comment text-3xl cursor-pointer hover:scale-105" @click="comment"></i>
         </div>
     </div>
 </template>
