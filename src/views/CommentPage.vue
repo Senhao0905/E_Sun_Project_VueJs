@@ -111,13 +111,13 @@ export default {
 </script>
 
 <template>
-    <div v-if="notFound" class=" overflow-auto bg-slate-500 border border-white rounded-xl  w-full h-1000">
+    <div v-if="notFound" class=" overflow-auto bg-slate-200   w-full h-1000">
 
     </div>
-    <div v-else class=" overflow-auto bg-slate-500 border border-white rounded-xl  w-full h-1000">
+    <div v-else class=" overflow-auto bg-slate-200    w-full h-1000">
         <PostListView v-if="post != null" :post="post" />
-        <div class=" border border-black bg-white mx-auto  rounded-lg w-3/4 h-40">
-            <h2 class=" text-blue-500">{{ userId }}</h2>
+        <div class=" drop-shadow-xl mt-2 bg-white mx-auto  rounded-lg w-3/4 h-40">
+            <h2 class=" text-blue-500 mx-2">{{ userId }}</h2>
             <div>
                 <textarea class=" resize-none w-5/6" name="" id="" cols="30" rows="5" v-model="textValue"></textarea>
                 <button type="button" class=" bg-slate-500 text-white px-2 rounded-lg text-xl ml-10"
@@ -126,7 +126,7 @@ export default {
         </div>
 
         <div v-if="commentList != null" v-for="item in commentList">
-            <CommentList :comment="item" />
+            <CommentList :comment="item" class=" my-2" />
         </div>
     </div>
 </template>

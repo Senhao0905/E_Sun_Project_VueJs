@@ -62,7 +62,7 @@ export default {
 </script>
 
 <template>
-    <div class=" overflow-auto bg-slate-500 border border-white rounded-xl  w-full h-1000">
+    <div class=" overflow-auto bg-slate-200    w-full h-1000">
         <PostView :user="user" />
         <div v-for="item in (postList != null ? postList :[]) ">
             <PostListView :post="item" />

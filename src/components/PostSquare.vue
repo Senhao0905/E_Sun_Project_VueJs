@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-    <div class=" mx-auto mt-2 bg-white rounded-lg w-3/4 h-52">
+    <div class="drop-shadow-xl mx-auto mt-2 bg-white rounded-lg w-3/4 h-52">
         <div class=" flex items-center ">
             <i class="fa-solid fa-user mx-2"></i>
             <h2 class=" text-blue-500 text-xl">{{ user != null ? user.userId : "" }}</h2>

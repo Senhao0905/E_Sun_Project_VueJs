@@ -14,6 +14,9 @@ export default{
             this.$router.push({
                 name :'login'
             })
+        },
+        home(){
+            this.$router.push("/home")
         }
     },
     mounted(){
@@ -24,12 +27,12 @@ export default{
 
 
 <template>
-    <header class=" bg-slate-400 h-28 w-full flex items-center justify-between">
-        <div class=" w-96 h-28">
-            <img class=" w-full h-full rounded-xl" src="../../pic/logo.jpg" alt="">
+    <header class= " bg-white h-28 w-full flex items-center justify-between">
+        <div class=" w-96  h-24">
+            <img class=" w-full h-full rounded-xl cursor-pointer" src="../../pic/logo.png" alt="" v-on:click="home">
         </div>
-        <RouterLink v-if="!isLogin" class="link text-3xl mx-5 hover:text-white" to="/">登入</RouterLink>
-        <h2 v-else class="link text-3xl mx-5 hover:text-white cursor-pointer" @click="logout">登出</h2>
+        <RouterLink v-if="!isLogin" class="link text-3xl mx-5 hover:text-red-500" to="/">登入</RouterLink>
+        <h2 v-else class="link text-3xl mx-5 hover:text-red-500 cursor-pointer" @click="logout">登出</h2>
 
     </header>
 </template>

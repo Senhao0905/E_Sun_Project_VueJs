@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-    <div class=" border border-black bg-white mx-auto  rounded-lg w-3/4 h-28">
+    <div class=" drop-shadow-xl bg-white mx-auto  rounded-lg w-3/4 h-28">
         <div class=" flex  justify-between">
             <div class=" flex items-center">
                 <i class="fa-solid fa-user mx-2"></i>
@@ -21,12 +21,12 @@ export default {
             </div>
 
             <div>
-                <h2>{{ time != null ? time : '' }}</h2>
+                <h2 class=" mx-2">{{ time != null ? time : '' }}</h2>
             </div>
 
         </div>
         <div>
-            <h2>{{ comment != null ? comment.content : '' }}</h2>
+            <h2 class=" mx-2">{{ comment != null ? comment.content : '' }}</h2>
         </div>
     </div>
 </template>
